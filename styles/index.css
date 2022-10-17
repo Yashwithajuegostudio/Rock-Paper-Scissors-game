@@ -1,0 +1,32 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.game-conatiner {
+  text-align: center;
+  padding: 5rem;
+  margin: 3rem;
+  border-radius: 2rem;
+  border: 0.1rem solid;
+  background-color: lightgreen;
+}
+.choice-btn {
+  line-height: 1rem;
+  width: 5rem;
+  padding: 0.2rem;
+  margin-top: 3rem;
+  cursor: pointer;
+}
+.game-text {
+  margin-bottom: 1rem;
+}
+#payer1-text {
+  color: blue;
+}
+#payer2-text {
+  color: red;
+}
+#payer2-text {
+  color: blueviolet;
+}
