@@ -1,39 +1,56 @@
-const player1Text = document.getElementById("payer1-text");
-const player2Text = document.getElementById("payer2-text");
-const resultText = document.getElementById("result-text");
-const choiceBtns = document.querySelectorAll(".choice-btn");
-let player1, player2, result;
-choiceBtns.forEach((button) =>
-  button.addEventListener("click", () => {
-    player1 = button.textContent;
-    player2Turn();
-    player1Text.textContent = `Player1: ${player1}`;
-    player2Text.textContent = `Player2: ${player2}`;
-    resultText.textContent = checkWinner();
+const computerChoiceDisplay = document.getElementById("computer-choice");
+const userChoiceDisplay = document.getElementById("user-choice");
+const resultDisplay = document.getElementById("result");
+const possibleChoices = document.querySelectorAll("button");
+let userChoice;
+let computerChoice;
+let result;
+
+possibleChoices.forEach((possibleChoice) =>
+  possibleChoice.addEventListener("click", (e) => {
+    userChoice = e.target.id;
+    userChoiceDisplay.innerHTML = userChoice;
+    generateComputerChoice();
+    getResult();
   })
 );
-function player2Turn() {
-  const randNum = Math.floor(Math.random() * choiceBtns.length);
-  switch (randNum) {
-    case 1:
-      player2 = "ROCK";
-      break;
-    case 2:
-      player2 = "PAPER";
-      break;
-    case 1:
-      player2 = "SCISSORS";
-      break;
+
+function generateComputerChoice() {
+  const randomNumber = Math.floor(Math.random() * 3) + 1;
+
+  if (randomNumber === 1) {
+    computerChoice = "rock";
   }
+  if (randomNumber === 2) {
+    computerChoice = "scissors";
+  }
+  if (randomNumber === 3) {
+    computerChoice = "paper";
+  }
+  computerChoiceDisplay.innerHTML = computerChoice;
 }
-function checkWinner() {
-  if (player1 == player2) {
-    return "Draw!";
-  } else if (player2 == "ROCK") {
-    return player1 == "SCISSORS" ? "You win!" : "You Lose";
-  } else if (player2 == "PAPER") {
-    return player1 == "SCISSORS" ? "You win!" : "You Lose";
-  } else if (player2 == "SCISSORS") {
-    return player1 == "ROCK" ? "You win!" : "You Lose";
+
+function getResult() {
+  if (computerChoice === userChoice) {
+    result = "its a draw!";
   }
+  if (computerChoice === "rock" && userChoice === "paper") {
+    result = "you win!";
+  }
+  if (computerChoice === "rock" && userChoice === "scissors") {
+    result = "you lost!";
+  }
+  if (computerChoice === "paper" && userChoice === "scissors") {
+    result = "you win!";
+  }
+  if (computerChoice === "paper" && userChoice === "rock") {
+    result = "you lose!";
+  }
+  if (computerChoice === "scissors" && userChoice === "rock") {
+    result = "you win!";
+  }
+  if (computerChoice === "scissors" && userChoice === "paper") {
+    result = "you lose!";
+  }
+  resultDisplay.innerHTML = result;
 }

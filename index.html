@@ -1,21 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="/styles/index.css" />
-    <script type="module" src="/js/index.js"></script>
-    <title>Rock-Paper-Scissors-game</title>
   </head>
   <body>
     <div class="game-conatiner">
-      <h1 class="game-text" id="payer1-text">Player1:&nbsp;</h1>
-      <h1 class="game-text" id="payer2-text">Player2:&nbsp;</h1>
-      <h1 class="game-text" id="result-text">Result</h1>
-      <button class="choice-btn">ROCK</button>
-      <button class="choice-btn">PAPER</button>
-      <button class="choice-btn">SCISSORS</button>
+      <h2 class="game-text">
+        Computer Choice: <span id="computer-choice"></span>
+      </h2>
+      <h2 class="game-text">Your Choice: <span id="user-choice"></span></h2>
+      <h2 class="game-text">Result: <span id="result"></span></h2>
+
+      <button class="choice-btn" id="rock">rock</button>
+      <button class="choice-btn" id="paper">paper</button>
+      <button class="choice-btn" id="scissors">scissors</button>
+
+      <script src="/js/index.js" charset="utf-8"></script>
     </div>
   </body>
 </html>
